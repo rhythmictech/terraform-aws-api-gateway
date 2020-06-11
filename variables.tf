@@ -23,33 +23,33 @@ The source of the identity in an incoming request.
 For REQUEST type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g.
 `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
 EOT
-  type        = string
+  type = string
 }
 
 variable "log_retention_in_days" {
-  default     = 30
+  default = 30
   description = "Days to retain apigateway logs"
-  type        = number
+  type = number
 }
 
 variable "minimum_compression_size" {
-  default     = -1
+  default = -1
   description = "Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default)."
-  type        = number
+  type = number
 }
 
 variable "name" {
   description = "Moniker to apply to all resources in the module"
-  type        = string
+  type = string
 }
 
 variable "provider_arns" {
-  default     = []
+  default = []
   description = <<EOT
 A list of the Amazon Cognito user pool ARNs. Each element is of this format:
 `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 EOT
-  type        = list(string)
+  type = list(string)
 }
 
 variable "regional_certificate_arn" {
@@ -76,7 +76,7 @@ A list of endpoint types. This resource currently only supports managing a singl
 Valid values: EDGE, REGIONAL or PRIVATE. If unspecified, defaults to EDGE. Must be declared as REGIONAL in non-Commercial partitions.
 Refer to the documentation for more information on the difference between edge-optimized and regional APIs.
 EOT
-  type        = list(string)
+  type = list(string)
 }
 
 locals {
