@@ -1,16 +1,13 @@
 
-module "tags" {
-  source  = "rhythmictech/tags/terraform"
-  version = "1.0.0"
+resource "aws_api_gateway_rest_api" "this" {
+  name                     = var.name
+  api_key_source           = var.api_key_source #tfsec:ignore:GEN003
+  binary_media_types       = var.binary_media_types
+  description              = "${var.name} API Gateway. Terraform Managed."
+  minimum_compression_size = var.minimum_compression_size
+  tags                     = var.tags
 
-  enforce_case = "UPPER"
-  names        = [var.name]
-  tags         = var.tags
-}
-
-locals {
-  # tflint-ignore: terraform_unused_declarations
-  name = module.tags.name
-  # tflint-ignore: terraform_unused_declarations
-  tags = module.tags.tags_no_name
+  endpoint_configuration {
+    types = var.types
+  }
 }
