@@ -29,33 +29,33 @@ The source of the identity in an incoming request.
 For REQUEST type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g.
 `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
 EOT
-  type        = string
+  type = string
 }
 
 variable "log_retention_in_days" {
-  default     = 30
+  default = 30
   description = "Days to retain apigateway logs"
-  type        = number
+  type = number
 }
 
 variable "minimum_compression_size" {
-  default     = -1
+  default = -1
   description = "Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default)."
-  type        = number
+  type = number
 }
 
 variable "name" {
   description = "Moniker to apply to all resources in the module"
-  type        = string
+  type = string
 }
 
 variable "provider_arns" {
-  default     = []
+  default = []
   description = <<EOT
 A list of the Amazon Cognito user pool ARNs. Each element is of this format:
 `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 EOT
-  type        = list(string)
+  type = list(string)
 }
 
 variable "regional_certificate_arn" {
@@ -86,12 +86,12 @@ variable "triggers" {
 A map of arbitrary keys and values that, when changed, will trigger a redeployment.
 To force a redeployment without changing these keys/values, use the terraform taint command.
 EOT
-  type        = map(string)
+  type = map(string)
 }
 
 variable "types" {
-  type        = list(string)
-  default     = ["EDGE"]
+  type = list(string)
+  default = ["EDGE"]
   description = <<EOT
 A list of endpoint types. This resource currently only supports managing a single value.
 Valid values: EDGE, REGIONAL or PRIVATE. If unspecified, defaults to EDGE. Must be declared as REGIONAL in non-Commercial partitions.
