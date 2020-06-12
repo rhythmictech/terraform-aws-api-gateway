@@ -1,14 +1,32 @@
-# terraform-api-gateway [![](https://github.com/rhythmictech/terraform-api-gateway/workflows/pre-commit-check/badge.svg)](https://github.com/rhythmictech/terraform-api-gateway/actions) <a href="https://twitter.com/intent/follow?screen_name=RhythmicTech"><img src="https://img.shields.io/twitter/follow/RhythmicTech?style=social&logo=RhythmicTech" alt="follow on Twitter"></a>
+# terraform-aws-api-gateway [![](https://github.com/rhythmictech/terraform-aws-api-gateway/workflows/pre-commit-check/badge.svg)](https://github.com/rhythmictech/terraform-aws-api-gateway/actions) <a href="https://twitter.com/intent/follow?screen_name=RhythmicTech"><img src="https://img.shields.io/twitter/follow/RhythmicTech?style=social&logo=RhythmicTech" alt="follow on Twitter"></a>
 Creates an API Gateway with:
 - CloudWatch logging
-- Domain Mapping
-- Deployment
+- Regional Domain Name
+- Optional Authorizer
+
+## About
+AWS API Gateway is commonly used to publicly expose a series of AWS Lambdas or ECS Services. It enables all sorts of goodies like a Web Application Firewall (WAF), access logging, and authentication. API Gateway deployments have a few main steps:
+
+0. Create the Actual APIs
+1. Create the API Gateway (this module)
+2. Populate the API Methods. You can do this just by uploading a swagger file
+3. Deploy to a stage of the API
 
 ## Example
-Here's what using the module will look like
+Here's what using the module will look like. See the [examples](examples) for more.
 ```hcl
 module "example" {
-  source = "rhythmictech/terraform-mycloud-mymodule
+  source  = "rhythmictech/api-gateway/aws
+  version = "1.0.0"
+
+  name                     = "test"
+  domain_name              = "test-api.sblack.rocks"
+  regional_certificate_arn = "arn:aws:acm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:certificate/6e8becd7-349e-48bf-b11b-97f4c7e901c8"
+  tags = {
+    delete_me   = "please"
+    Environment = "sandbox"
+    whodunnit   = "@sblack4"
+  }
 }
 ```
 
