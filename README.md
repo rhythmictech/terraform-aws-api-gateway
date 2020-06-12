@@ -17,7 +17,7 @@ module "example" {
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.0 |
+| terraform | >= 0.12.20 |
 | aws | ~> 2.48.0 |
 
 ## Providers
@@ -45,7 +45,14 @@ module "example" {
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| api\_gateway\_authorizer\_id | The ID of the Authorizer |
+| api\_gateway\_rest\_api\_arn | Amazon Resource Name (ARN) |
+| api\_gateway\_rest\_api\_id | The ID of the REST API |
+| cloudwatch\_log\_group\_arn | The Amazon Resource Name (ARN) specifying the log group. |
+| domain\_name\_arn | Amazon Resource Name (ARN) |
+| domain\_name\_id | The internal id assigned to this domain name by API Gateway. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
