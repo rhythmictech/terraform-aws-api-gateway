@@ -18,12 +18,12 @@ variable "domain_name" {
 
 variable "identity_source" {
   default     = "method.request.header.x-api-key"
+  type        = string
   description = <<EOT
 The source of the identity in an incoming request.
 For REQUEST type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g.
 `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
 EOT
-  type        = string
 }
 
 variable "log_retention_in_days" {
@@ -45,11 +45,11 @@ variable "name" {
 
 variable "provider_arns" {
   default     = []
+  type        = list(string)
   description = <<EOT
 A list of the Amazon Cognito user pool ARNs. Each element is of this format:
 `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
 EOT
-  type        = list(string)
 }
 
 variable "regional_certificate_arn" {
@@ -71,12 +71,12 @@ variable "tags" {
 
 variable "types" {
   default     = ["EDGE"]
+  type        = list(string)
   description = <<EOT
 A list of endpoint types. This resource currently only supports managing a single value.
 Valid values: EDGE, REGIONAL or PRIVATE. If unspecified, defaults to EDGE. Must be declared as REGIONAL in non-Commercial partitions.
 Refer to the documentation for more information on the difference between edge-optimized and regional APIs.
 EOT
-  type        = list(string)
 }
 
 locals {
