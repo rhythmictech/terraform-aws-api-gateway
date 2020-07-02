@@ -1,4 +1,4 @@
-# terraform-aws-api-gateway [![](https://github.com/rhythmictech/terraform-aws-api-gateway/workflows/pre-commit-check/badge.svg)](https://github.com/rhythmictech/terraform-aws-api-gateway/actions) <a href="https://twitter.com/intent/follow?screen_name=RhythmicTech"><img src="https://img.shields.io/twitter/follow/RhythmicTech?style=social&logo=RhythmicTech" alt="follow on Twitter"></a>
+# terraform-aws-api-gateway [![](https://github.com/rhythmictech/terraform-aws-api-gateway/workflows/pre-commit-check/badge.svg)](https://github.com/rhythmictech/terraform-aws-api-gateway/actions) <a href="https://twitter.com/intent/follow?screen_name=RhythmicTech"><img src="https://img.shields.io/twitter/follow/RhythmicTech?style=social&logo=twitter" alt="follow on Twitter"></a>
 Creates an API Gateway with:
 - CloudWatch logging
 - Regional Domain Name
@@ -7,7 +7,7 @@ Creates an API Gateway with:
 ## About
 AWS API Gateway is commonly used to publicly expose a series of AWS Lambdas or ECS Services. It enables all sorts of goodies like a Web Application Firewall (WAF), access logging, and authentication. API Gateway deployments have a few main steps:
 
-0. Create the Actual APIs
+0. Create the Actual APIs. Do this in whatever language you want, just make sure they're documented with swagger/OpenAPI
 1. Create the API Gateway (this module)
 2. Populate the API Methods. You can do this just by uploading a swagger file
 3. Deploy to a stage of the API
@@ -36,13 +36,13 @@ module "example" {
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12.20 |
-| aws | ~> 2.48.0 |
+| aws | >= 2.48.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.48.0 |
+| aws | >= 2.48.0 |
 
 ## Inputs
 
