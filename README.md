@@ -53,6 +53,7 @@ module "example" {
 | regional\_certificate\_arn | The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. | `string` | n/a | yes |
 | api\_key\_source | The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER. | `string` | `"HEADER"` | no |
 | binary\_media\_types | The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads. | `list` | <pre>[<br>  "UTF-8-encoded"<br>]</pre> | no |
+| description | Description for the API Gateway. | `string` | `""` | no |
 | identity\_source | The source of the identity in an incoming request.<br>For REQUEST type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g.<br>`"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"` | `string` | `"method.request.header.x-api-key"` | no |
 | log\_retention\_in\_days | Days to retain apigateway logs | `number` | `30` | no |
 | minimum\_compression\_size | Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default). | `number` | `-1` | no |

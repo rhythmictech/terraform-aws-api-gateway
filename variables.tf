@@ -11,6 +11,12 @@ variable "binary_media_types" {
   type        = list
 }
 
+variable "description" {
+  default     = ""
+  description = "Description for the API Gateway."
+  type        = string
+}
+
 variable "domain_name" {
   description = "The fully-qualified domain name to register"
   type        = string
