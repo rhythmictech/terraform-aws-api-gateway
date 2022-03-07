@@ -36,7 +36,7 @@ resource "aws_api_gateway_rest_api" "this" {
 
 resource "aws_api_gateway_authorizer" "this" {
   count           = length(var.provider_arns) < 1 ? 0 : 1
-  name            = var.name
+  name            = replace(var.name, " ", "-")
   identity_source = var.identity_source
   provider_arns   = var.provider_arns
   rest_api_id     = aws_api_gateway_rest_api.this.id
