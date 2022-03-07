@@ -62,7 +62,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_api_key_source"></a> [api\_key\_source](#input\_api\_key\_source) | The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER. | `string` | `"HEADER"` | no |
-| <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads. | `list` | <pre>[<br>  "UTF-8-encoded"<br>]</pre> | no |
+| <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads. | `list(any)` | <pre>[<br>  "UTF-8-encoded"<br>]</pre> | no |
 | <a name="input_description"></a> [description](#input\_description) | Description for the API Gateway. | `string` | `""` | no |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | The fully-qualified domain name to register | `string` | n/a | yes |
 | <a name="input_identity_source"></a> [identity\_source](#input\_identity\_source) | The source of the identity in an incoming request.<br>For REQUEST type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g.<br>`"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"` | `string` | `"method.request.header.x-api-key"` | no |
