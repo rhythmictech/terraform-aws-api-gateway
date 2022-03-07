@@ -48,7 +48,7 @@ resource "aws_api_gateway_authorizer" "this" {
 ########################################
 
 resource "aws_cloudwatch_log_group" "this" {
-  name_prefix       = local.name_prefix
+  name_prefix       = replace(local.name_prefix, " ", "-")
   retention_in_days = var.log_retention_in_days
   tags              = var.tags
 }

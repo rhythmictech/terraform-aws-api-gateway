@@ -8,7 +8,7 @@ variable "api_key_source" {
 variable "binary_media_types" {
   default     = ["UTF-8-encoded"]
   description = "The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads."
-  type        = list
+  type        = list(any)
 }
 
 variable "description" {
