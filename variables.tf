@@ -63,6 +63,17 @@ variable "regional_certificate_arn" {
   type        = string
 }
 
+variable "route53_zone_id" {
+  description = "Zone ID for Route 53 DNS entry"
+  type        = string
+}
+
+variable "route53_evaluate_target_health" {
+  default     = true
+  description = "Bool for Route 53 alias target health eval"
+  type        = bool
+}
+
 variable "security_policy" {
   default     = "TLS_1_2"
   description = "The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are TLS_1_0 and TLS_1_2. Must be configured to perform drift detection."

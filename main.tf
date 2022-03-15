@@ -13,6 +13,18 @@ resource "aws_api_gateway_domain_name" "this" {
   }
 }
 
+resource "aws_route53_record" "this" {
+  name    = aws_api_gateway_domain_name.this.domain_name
+  type    = "A"
+  zone_id = var.route53_zone_id
+
+  alias {
+    evaluate_target_health = var.route53_evaluate_target_health
+    name                   = aws_api_gateway_domain_name.this.cloudfront_domain_name
+    zone_id                = aws_api_gateway_domain_name.this.cloudfront_zone_id
+  }
+}
+
 resource "aws_api_gateway_rest_api" "this" {
   name                     = var.name
   api_key_source           = var.api_key_source #tfsec:ignore:general-secrets-no-plaintext-exposure
