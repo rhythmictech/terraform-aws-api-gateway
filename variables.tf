@@ -1,6 +1,6 @@
 
 variable "api_key_source" {
-  default     = "HEADER" #tfsec:ignore:GEN001
+  default     = "HEADER" #tfsec:ignore:general-secrets-no-plaintext-exposure
   description = "The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER."
   type        = string
 }

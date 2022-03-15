@@ -42,7 +42,7 @@ module "example" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.48.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.5.0 |
 
 ## Modules
 
