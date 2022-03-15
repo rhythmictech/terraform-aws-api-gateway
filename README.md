@@ -86,8 +86,10 @@ No modules.
 | <a name="output_api_gateway_rest_api_arn"></a> [api\_gateway\_rest\_api\_arn](#output\_api\_gateway\_rest\_api\_arn) | Amazon Resource Name (ARN) |
 | <a name="output_api_gateway_rest_api_id"></a> [api\_gateway\_rest\_api\_id](#output\_api\_gateway\_rest\_api\_id) | The ID of the REST API |
 | <a name="output_cloudwatch_log_group_arn"></a> [cloudwatch\_log\_group\_arn](#output\_cloudwatch\_log\_group\_arn) | The Amazon Resource Name (ARN) specifying the log group. |
+| <a name="output_domain_name"></a> [domain\_name](#output\_domain\_name) | aws\_api\_gateway\_domain\_name resource |
 | <a name="output_domain_name_arn"></a> [domain\_name\_arn](#output\_domain\_name\_arn) | Amazon Resource Name (ARN) |
 | <a name="output_domain_name_id"></a> [domain\_name\_id](#output\_domain\_name\_id) | The internal id assigned to this domain name by API Gateway. |
+| <a name="output_route53_entry"></a> [route53\_entry](#output\_route53\_entry) | aws\_route53\_record A for aws\_api\_gateway\_domain\_name |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## The Giants underneath this module
