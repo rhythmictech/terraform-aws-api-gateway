@@ -20,8 +20,8 @@ resource "aws_route53_record" "this" {
 
   alias {
     evaluate_target_health = var.route53_evaluate_target_health
-    name                   = aws_api_gateway_domain_name.this.cloudfront_domain_name
-    zone_id                = aws_api_gateway_domain_name.this.cloudfront_zone_id
+    name                   = aws_api_gateway_domain_name.this.regional_domain_name
+    zone_id                = aws_api_gateway_domain_name.this.regional_zone_id
   }
 }
 
