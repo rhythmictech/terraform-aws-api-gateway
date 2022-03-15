@@ -1,6 +1,6 @@
 
 variable "api_key_source" {
-  default     = "HEADER" #tfsec:ignore:GEN001
+  default     = "HEADER" #tfsec:ignore:general-secrets-no-plaintext-exposure
   description = "The source of the API key for requests. Valid values are HEADER (default) and AUTHORIZER."
   type        = string
 }
@@ -61,6 +61,17 @@ EOT
 variable "regional_certificate_arn" {
   description = "The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source."
   type        = string
+}
+
+variable "route53_zone_id" {
+  description = "Zone ID for Route 53 DNS entry"
+  type        = string
+}
+
+variable "route53_evaluate_target_health" {
+  default     = true
+  description = "Bool for Route 53 alias target health eval"
+  type        = bool
 }
 
 variable "security_policy" {

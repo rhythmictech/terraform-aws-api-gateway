@@ -42,7 +42,7 @@ module "example" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.48.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.5.0 |
 
 ## Modules
 
@@ -56,6 +56,7 @@ No modules.
 | [aws_api_gateway_domain_name.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_domain_name) | resource |
 | [aws_api_gateway_rest_api.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_rest_api) | resource |
 | [aws_cloudwatch_log_group.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudwatch_log_group) | resource |
+| [aws_route53_record.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
 
 ## Inputs
 
@@ -71,6 +72,8 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | Moniker to apply to all resources in the module | `string` | n/a | yes |
 | <a name="input_provider_arns"></a> [provider\_arns](#input\_provider\_arns) | A list of the Amazon Cognito user pool ARNs. Each element is of this format:<br>`arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`. | `list(string)` | `[]` | no |
 | <a name="input_regional_certificate_arn"></a> [regional\_certificate\_arn](#input\_regional\_certificate\_arn) | The ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. | `string` | n/a | yes |
+| <a name="input_route53_evaluate_target_health"></a> [route53\_evaluate\_target\_health](#input\_route53\_evaluate\_target\_health) | Bool for Route 53 alias target health eval | `bool` | `true` | no |
+| <a name="input_route53_zone_id"></a> [route53\_zone\_id](#input\_route53\_zone\_id) | Zone ID for Route 53 DNS entry | `string` | n/a | yes |
 | <a name="input_security_policy"></a> [security\_policy](#input\_security\_policy) | The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are TLS\_1\_0 and TLS\_1\_2. Must be configured to perform drift detection. | `string` | `"TLS_1_2"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | User-Defined tags | `map(string)` | `{}` | no |
 | <a name="input_types"></a> [types](#input\_types) | A list of endpoint types. This resource currently only supports managing a single value.<br>Valid values: EDGE, REGIONAL or PRIVATE. If unspecified, defaults to EDGE. Must be declared as REGIONAL in non-Commercial partitions.<br>Refer to the documentation for more information on the difference between edge-optimized and regional APIs. | `list(string)` | <pre>[<br>  "EDGE"<br>]</pre> | no |
@@ -83,8 +86,10 @@ No modules.
 | <a name="output_api_gateway_rest_api_arn"></a> [api\_gateway\_rest\_api\_arn](#output\_api\_gateway\_rest\_api\_arn) | Amazon Resource Name (ARN) |
 | <a name="output_api_gateway_rest_api_id"></a> [api\_gateway\_rest\_api\_id](#output\_api\_gateway\_rest\_api\_id) | The ID of the REST API |
 | <a name="output_cloudwatch_log_group_arn"></a> [cloudwatch\_log\_group\_arn](#output\_cloudwatch\_log\_group\_arn) | The Amazon Resource Name (ARN) specifying the log group. |
+| <a name="output_domain_name"></a> [domain\_name](#output\_domain\_name) | aws\_api\_gateway\_domain\_name resource |
 | <a name="output_domain_name_arn"></a> [domain\_name\_arn](#output\_domain\_name\_arn) | Amazon Resource Name (ARN) |
 | <a name="output_domain_name_id"></a> [domain\_name\_id](#output\_domain\_name\_id) | The internal id assigned to this domain name by API Gateway. |
+| <a name="output_route53_entry"></a> [route53\_entry](#output\_route53\_entry) | aws\_route53\_record A for aws\_api\_gateway\_domain\_name |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## The Giants underneath this module

@@ -13,9 +13,21 @@ resource "aws_api_gateway_domain_name" "this" {
   }
 }
 
+resource "aws_route53_record" "this" {
+  name    = aws_api_gateway_domain_name.this.domain_name
+  type    = "A"
+  zone_id = var.route53_zone_id
+
+  alias {
+    evaluate_target_health = var.route53_evaluate_target_health
+    name                   = aws_api_gateway_domain_name.this.cloudfront_domain_name
+    zone_id                = aws_api_gateway_domain_name.this.cloudfront_zone_id
+  }
+}
+
 resource "aws_api_gateway_rest_api" "this" {
   name                     = var.name
-  api_key_source           = var.api_key_source #tfsec:ignore:GEN003
+  api_key_source           = var.api_key_source #tfsec:ignore:general-secrets-no-plaintext-exposure
   binary_media_types       = var.binary_media_types
   description              = coalesce(var.description, "${var.name} API Gateway. Terraform Managed.")
   minimum_compression_size = var.minimum_compression_size
@@ -47,6 +59,7 @@ resource "aws_api_gateway_authorizer" "this" {
 # Logging
 ########################################
 
+#tfsec:ignore:aws-cloudwatch-log-group-customer-key
 resource "aws_cloudwatch_log_group" "this" {
   name_prefix       = replace(local.name_prefix, " ", "-")
   retention_in_days = var.log_retention_in_days
