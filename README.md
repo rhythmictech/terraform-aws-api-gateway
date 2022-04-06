@@ -42,7 +42,7 @@ module "example" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.48.0 |
 
 ## Modules
 
@@ -66,6 +66,7 @@ No modules.
 | <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads. | `list(any)` | <pre>[<br>  "UTF-8-encoded"<br>]</pre> | no |
 | <a name="input_description"></a> [description](#input\_description) | Description for the API Gateway. | `string` | `""` | no |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | The fully-qualified domain name to register | `string` | n/a | yes |
+| <a name="input_endpoint_configuration"></a> [endpoint\_configuration](#input\_endpoint\_configuration) | API gateway endpoint config. REGIONAL or EDGE | `string` | `"EDGE"` | no |
 | <a name="input_identity_source"></a> [identity\_source](#input\_identity\_source) | The source of the identity in an incoming request.<br>For REQUEST type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g.<br>`"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"` | `string` | `"method.request.header.x-api-key"` | no |
 | <a name="input_log_retention_in_days"></a> [log\_retention\_in\_days](#input\_log\_retention\_in\_days) | Days to retain apigateway logs | `number` | `30` | no |
 | <a name="input_minimum_compression_size"></a> [minimum\_compression\_size](#input\_minimum\_compression\_size) | Minimum response size to compress for the REST API. Integer between -1 and 10485760 (10MB). Setting a value greater than -1 will enable compression, -1 disables compression (default). | `number` | `-1` | no |

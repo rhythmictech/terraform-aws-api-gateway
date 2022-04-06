@@ -22,6 +22,12 @@ variable "domain_name" {
   type        = string
 }
 
+variable "endpoint_configuration" {
+  default     = "EDGE"
+  description = "API gateway endpoint config. REGIONAL or EDGE"
+  type        = string
+}
+
 variable "identity_source" {
   default     = "method.request.header.x-api-key"
   type        = string
