@@ -9,7 +9,7 @@ resource "aws_api_gateway_domain_name" "this" {
   tags                     = var.tags
 
   endpoint_configuration {
-    types = ["REGIONAL"]
+    types = [var.endpoint_configuration]
   }
 }
 
